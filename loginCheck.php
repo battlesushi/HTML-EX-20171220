@@ -22,7 +22,7 @@ if($id != null && $pw != null && $row[1] == $id && $row[2] == $pw)
         $link->query($sql);
         $_SESSION['account'] = $id;
         echo '登入成功!';
-//        require_once('mailTest.php');//<--有人登入之後 寄信管理者信箱
+        require_once('mailTest.php');//<--有人登入之後 寄信管理者信箱
         echo '<meta http-equiv=REFRESH CONTENT=1;url=admindex.php>';
 }
 else

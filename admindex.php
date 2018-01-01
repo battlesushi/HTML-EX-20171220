@@ -99,7 +99,9 @@ if ($_SESSION['account'] != null) {
                             <div class="panel-heading"><h2>使用者列表(<?php echo $count; ?>)</h2></div>
                         </div>
                         <h2 class="w3-text-grey w3-padding-16"><a href="register.php"><i
-                                        class="fa fa-plus" aria-hidden="true"></i>新增使用者</a></h2>
+                                        class="fa fa-plus" aria-hidden="true"></i>新增使用者&nbsp;&nbsp;&nbsp;</a>
+                            <a href=""><i
+                                        class="fa fa-pencil" aria-hidden="true"></i>編輯首頁</a></h2>
                         <table class="table">
                             <thead>
                             <tr>
@@ -132,19 +134,19 @@ if ($_SESSION['account'] != null) {
                                     <td><?php echo $user['email']; ?></td>
                                     <td><?php echo $user['phone']; ?></td>
                                     <td><?php echo $user['userType']; ?></td>
-                                    <?php
-                                    if ($_SESSION['type'] == 0) {
-                                        ?>
-                                        <td>
-                                            <a class="btn btn-large btn-warning"
-                                               href="update.php?id=<?php echo $user['account']; ?>">UPDATE</a>
-                                            <a class="btn btn-large btn-danger"
-                                               onclick="return confirm('Are you sure?')"
-                                               href="delete.php?id=<?php echo $user['id']; ?>">DELETE</a>
-                                        </td>
-                                        <?php
-                                    }
-                                    ?>
+<!--                                    --><?php
+//                                    if ($_SESSION['type'] == 0) {
+//                                        ?>
+<!--                                        <td>-->
+<!--                                            <a class="btn btn-large btn-warning"-->
+<!--                                               href="update.php?id=--><?php //echo $user['account']; ?><!--">UPDATE</a>-->
+<!--                                            <a class="btn btn-large btn-danger"-->
+<!--                                               onclick="return confirm('Are you sure?')"-->
+<!--                                               href="delete.php?id=--><?php //echo $user['id']; ?><!--">DELETE</a>-->
+<!--                                        </td>-->
+<!--                                        --><?php
+//                                    }
+//                                    ?>
                                 </tr>
                                 <?php
                             }

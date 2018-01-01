@@ -18,7 +18,7 @@ try {
 
     $mail->setFrom('battlesushi@gmail.com', 'Admin');
 //    $mail->addAddress('recipient1@example.net', 'Recipient1');
-    $mail->addAddress('z27850457@gmail.com');  //收件者
+    $mail->addAddress('battlesushi2@gmail.com');  //收件者
 
     $mail->addReplyTo('noreply@example.com', 'noreply');
 //    $mail->addCC('cc@example.com');
