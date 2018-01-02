@@ -3,13 +3,14 @@ session_start();
 include("fun.inc.php");
 include("db_connect.php");
 if ($_SESSION['account'] != null) {
-    //將$_SESSION['username']丟給$id
-    //這樣在下SQL語法時才可以給搜尋的值
-    $id = $_SESSION['account'];
-    //若以下$id直接用$_SESSION['username']將無法使用
-    $sql = "SELECT * FROM profile where username='$id'";
+    $sql = "SELECT * FROM profile where id=2";
     $result = mysqli_query($link,$sql);
     $row = @mysqli_fetch_row($result);
+    $author=$row[1];
+    $title=$row[2];
+    $publisher=$row[3];
+    $email=$row[7];
+    $phone=$row[8];
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +61,11 @@ if ($_SESSION['account'] != null) {
             }
         }
     </style>
+    <script>
+        function reSet() {
+            document.getElementById("form").reset();
+        }
+    </script>
 </head>
 <body>
 
@@ -85,26 +91,26 @@ if ($_SESSION['account'] != null) {
     <div class="row content">
         <div class="col-sm-12 text-left">
             <span style="color: #ffffff; font-size: 1.5em; background-color: black">編輯個人資料</span>
-            <form id="form" method="post" action="register_finish.php">
+            <form id="form" method="post" action="editIndexT_finish.php">
                 <b>
                         <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        姓名：</span>&nbsp;<input type="text" name="author"/> <br>
-                    <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        職稱：</span>&nbsp;<input type="password" name="title"/> <br>
+                        姓名：</span>&nbsp;<input type="text" name="author" value="<?php echo $author ?>"/> <br>
+                    <span style="color: #ffffff; font-size: 1.5em; background-color: black"><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                        職稱：</span>&nbsp;<input type="text" name="title" value="<?php echo $title ?>"/> <br>
                     <hr>
-                    <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        居住地</span>&nbsp;<input type="password" name="publisher"/> <br>
+                    <span style="color: #ffffff; font-size: 1.5em; background-color: black"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                        居住地</span>&nbsp;<input type="text" name="publisher" value="<?php echo $publisher ?>"/> <br>
                     <hr>
-                    <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        E-mail：</span><input type="text" name="email"/> <br>
-                    <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        Phone：</span>&nbsp;<input type="text" name="phone"/> <br>
+                    <span style="color: #ffffff; font-size: 1.5em; background-color: black"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                        E-mail：</span><input type="text" name="email" value="<?php echo $email ?>"/> <br>
+                    <span style="color: #ffffff; font-size: 1.5em; background-color: black"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>
+                        Phone：</span>&nbsp;<input type="text" name="phone" value="<?php echo $phone ?>"/> <br>
                     <hr>
                 </b>
                 <b style="color: #ffffff;font-size: 1.5em"><input type="submit" name="button" value="更新/Update"style="background-color: black"/></b>
                 <br>
                 <br>
-                <b style="color: #ffffff;font-size: 1.5em"><input type="button" onclick="reSet()" value="清空"style="background-color: black"/></b>
+                <b style="color: #ffffff;font-size: 1.5em"><input type="button" onclick="reSet()" value="全部重置"style="background-color: black"/></b>
             </form>
         </div>
     </div>

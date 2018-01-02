@@ -10,13 +10,12 @@ $email = $_POST['email'];
 $phone = $_POST['phone'];
 
 //紅色字體為判斷密碼是否填寫正確
-if($_SESSION['account'] != null && $pw != null && $pw2 != null)
+if($_SESSION['account'] != null)
 {
     $id = $_SESSION['account'];
-
     //更新資料庫資料語法
-    $sql = "update profile set author=$pw, title=$title, publisher=$publisher, email=$email , phone=$phone where author='$author'";
-    if(mysql_iquery($link,$sql))
+    $sql = "update profile set author='$author', title='$title', publisher='$publisher', email='$email' , phone='$phone' where username='$id'";
+    if(mysqli_query($link,$sql))
     {
         echo '修改成功!';
         echo '<meta http-equiv=REFRESH CONTENT=2;url=editIndexT.php>';

@@ -3,6 +3,14 @@ session_start();
 include("fun.inc.php");
 include("db_connect.php");
 if ($_SESSION['account'] != null) {
+    $sql = "SELECT * FROM profile where id=2";
+    $result = mysqli_query($link,$sql);
+    $row = @mysqli_fetch_row($result);
+    $author=$row[1];
+    $title=$row[2];
+    $publisher=$row[3];
+    $email=$row[7];
+    $phone=$row[8];
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -78,12 +86,12 @@ if ($_SESSION['account'] != null) {
         <div class="row content">
             <div class="col-sm-2 sidenav">
                 <p align="center"><img src="Cheng_Hung_Chuang.jpg" alt="莊政宏"></p>
-                <div style="text-align: center;"><p><b><i>莊政宏</i></b></p></div>
-                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>教育人員</p>
-                <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>台中，台灣</p>
+                <div style="text-align: center;"><p><b><i><?php echo $author ?></i></b></p></div>
+                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $title ?></p>
+                <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $publisher ?></p>
                 <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><a
-                            href="mailto:chchuang@asia.edu.tw">chchuang@asia.edu.tw</a></p>
-                <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>+886-4-23323456 ext.48035</p>
+                            href="mailto:chchuang@asia.edu.tw"><?php echo $email ?></a></p>
+                <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $phone ?></p>
 
             </div>
             <div class="col-sm-10 text-left">
