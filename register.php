@@ -95,6 +95,7 @@ if ($_SESSION['account'] != null) {
 <!--                                style="background-color: #009688;border-radius: 4px; color: #ffffff;">當前</span></h5>-->
 <!--                    <hr>-->
 <!--                </div>-->
+                <span style="color: #ffffff; font-size: 1.5em; background-color: black">新增使用者</span>
                 <form id="form" method="post" action="register_finish.php">
                     <b>
                         <span style="color: #ffffff; font-size: 1.5em; background-color: black">

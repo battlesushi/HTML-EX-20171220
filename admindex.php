@@ -100,8 +100,8 @@ if ($_SESSION['account'] != null) {
                         </div>
                         <h2 class="w3-text-grey w3-padding-16"><a href="register.php"><i
                                         class="fa fa-plus" aria-hidden="true"></i>新增使用者&nbsp;&nbsp;&nbsp;</a>
-                            <a href=""><i
-                                        class="fa fa-pencil" aria-hidden="true"></i>編輯首頁</a></h2>
+                            <a href="editIndexT.php"><i
+                                        class="fa fa-pencil" aria-hidden="true"></i>編輯個人資料</a></h2>
                         <table class="table">
                             <thead>
                             <tr>

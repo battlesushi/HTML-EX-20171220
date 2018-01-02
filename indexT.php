@@ -73,92 +73,45 @@ session_start();
 </nav>
 
 <div class="container-fluid text-center">
-    <div class="row content">
-        <div class="col-sm-2 sidenav">
-            <p align="center"><img src="Cheng_Hung_Chuang.jpg" alt="莊政宏"></p>
-            <div style="text-align: center;"><p><b><i>莊政宏</i></b></p></div>
-            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>教育人員</p>
-            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>台中，台灣</p>
-            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><a
-                        href="mailto:chchuang@asia.edu.tw">chchuang@asia.edu.tw</a></p>
-            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>+886-4-23323456 ext.48035</p>
-
-        </div>
-        <div class="col-sm-4 text-left">
-            <h2 class="w3-text-grey w3-padding-16"><i
-                        class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>經歷</h2>
-            <div class="w3-container">
-                <h4 class="w3-opacity"><b>副教授</b></h4>
-                <h5 class="w3-opacity"><a href="http://csie.asia.edu.tw/"><b>資訊工程學系</b></a></h5>
-                <h5 class="w3-opacity"><a href="http://www.asia.edu.tw/"><b>亞洲大學</b></a></h5>
-                <h5 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><span
-                            style="color: #48af7c">2013年8月</span> - <span
-                            style="background-color: #009688;border-radius: 4px; color: #ffffff;">當前</span></h5>
-                <hr>
-            </div>
-            <div class="w3-container">
-                <h4 class="w3-opacity"><b>助理教授</b></h4>
-                <h5 class="w3-opacity"><a href="http://csie.asia.edu.tw/"><b>資訊工程學系</b></a></h5>
-                <h5 class="w3-opacity"><a href="http://www.asia.edu.tw/"><b>亞洲大學</b></a></h5>
-                <h5 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><span
-                            style="color: #48af7c">2007年2月 - 2013年7月</span></h5>
-                <hr>
-            </div>
-            <div class="w3-container">
-                <h4 class="w3-opacity"><b>博士後研究</b></h4>
-                <h5 class="w3-opacity"><a href="http://www.stat.sinica.edu.tw/statnewsite/"><b>統計科學研究所</b></a></h5>
-                <h5 class="w3-opacity"><a href="http://www.sinica.edu.tw/"><b>中央研究院</b></a></h5>
-                <h5 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><span
-                            style="color: #48af7c">2003年8月 - 2007年1月</span></h5>
+    <div class="row content" style="background-image: url('images/BokudakegaInaiMachi.jpg'); background-size: 100% 100%">
+        <div class="col-sm-12 text-left">
+            <!--                <h2 class="w3-text-grey w3-padding-16"><i-->
+            <!--                            class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>經歷</h2>-->
+            <!--                <div class="w3-container">-->
+            <!--                    <h4 class="w3-opacity"><b>副教授</b></h4>-->
+            <!--                    <h5 class="w3-opacity"><a href="http://csie.asia.edu.tw/"><b>資訊工程學系</b></a></h5>-->
+            <!--                    <h5 class="w3-opacity"><a href="http://www.asia.edu.tw/"><b>亞洲大學</b></a></h5>-->
+            <!--                    <h5 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><span-->
+            <!--                                style="color: #48af7c">2013年8月</span> - <span-->
+            <!--                                style="background-color: #009688;border-radius: 4px; color: #ffffff;">當前</span></h5>-->
+            <!--                    <hr>-->
+            <!--                </div>-->
+            <form id="form" method="post" action="register_finish.php">
+                <b>
+                        <span style="color: #ffffff; font-size: 1.5em; background-color: black">
+                        帳號：</span>&nbsp;<input type="text" name="id"/> <br>
+                    <span style="color: #ffffff; font-size: 1.5em; background-color: black">
+                        密碼：</span>&nbsp;<input type="password" name="pw"/> <br>
+                    <hr>
+                    <span style="color: #ffffff; font-size: 1.5em; background-color: black">
+                        再一次輸入密碼：</span>&nbsp;<input type="password" name="pw2"/> <br>
+                    <hr>
+                    <span style="color: #ffffff; font-size: 1.5em; background-color: black">
+                        E-mail：</span><input type="text" name="email"/> <br>
+                    <span style="color: #ffffff; font-size: 1.5em; background-color: black">
+                        Phone：</span>&nbsp;<input type="text" name="phone"/> <br>
+                    <span style="color: #ffffff; font-size: 1.5em; background-color: black">
+                        Type：</span> &nbsp;&nbsp;<input type="text" name="type"/> <br>
+                    <hr>
+                </b>
+                <b style="color: #ffffff;font-size: 1.5em"><input type="submit" name="button" value="新增使用者"style="background-color: black"/></b>
                 <br>
-            </div>
-
-        </div>
-        <div class="col-sm-4 text-left">
-            <h2 class="w3-text-grey w3-padding-16"><i
-                        class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>學歷</h2>
-            <div class="w3-container">
-                <h4 class="w3-opacity"><b>國立中正大學電機工程博士</b></h4>
-                <h5 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><span
-                            style="color: #48af7c">1996年9月 - 2003年6月</span></h5>
-                <hr>
-            </div>
-            <div class="w3-container">
-                <h4 class="w3-opacity"><b>國立中正大學電機工程碩士</b></h4>
-                <h5 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><span
-                            style="color: #48af7c">1994年9月 - 1996年6月</span></h5>
-                <hr>
-            </div>
-
-        </div>
-        <div class="col-sm-2 sidenav">
-            <div class="well" align="left">
-                <p class="w3-large w3-text-theme"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>研究主題</b>
-                </p>
-                <p>影像/視訊處理</p>
-                <div class="w3-light-grey w3-round-xlarge w3-small">
-                    <div style="width:100%;background-color: #009688;border-radius: 16px;color: white" align="center">
-                        專注率 100%
-                    </div>
-                </div>
-                <p>電腦視覺</p>
-                <div class="w3-light-grey w3-round-xlarge w3-small">
-                    <div style="width:100%;background-color: #009688;border-radius: 16px;color: white" align="center">
-                        專注率 100%
-                    </div>
-                </div>
-                <p>圖型識別</p>
-                <div class="w3-light-grey w3-round-xlarge w3-small">
-                    <div style="width:100%;background-color: #009688;border-radius: 16px;color: white" align="center">
-                        專注率 100%
-                    </div>
-                </div>
-
-            </div>
+                <br>
+                <b style="color: #ffffff;font-size: 1.5em"><input type="button" onclick="reSet()" value="清空"style="background-color: black"/></b>
+            </form>
         </div>
     </div>
-</div>
-<?php footer() ?>
+</div><?php footer() ?>
 
 </body>
 </html>
