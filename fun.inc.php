@@ -13,6 +13,7 @@ function navbar($flag){
     <?php
         if($_SESSION['account'] != null)
         {
+            $id = $_SESSION['account'];
     ?>
             <li <?php if($flag==0) echo "class='active'";?>><a href="admindex.php"><i class="fa fa-cog" aria-hidden="true"></i>控制台</a></li>
     <?php
@@ -32,10 +33,12 @@ function navbar($flag){
         <?php
         if($_SESSION['account'] != null)
         {
+            echo '<li style="color: #eeeeee">歡迎使用!!&nbsp;&nbsp;&nbsp;'.$id.'</li>';
             echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>';
         }
         else
         {
+           echo '<li style="color: #eeeeee">請登入--></li>';
            echo '<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
         }
         ?>

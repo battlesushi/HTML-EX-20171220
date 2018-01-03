@@ -159,6 +159,7 @@ session_start();
     <div class="row content">
         <div class="col-sm-6 text-left">
             <div class="entry">
+                <button type="submit"><a href="genpdf.php">下載pdf</a></button>
                 <table width="95%" border="0" cellpadding="0" cellspacing="0" class="tb_main">
                     <tbody><tr class="odd">
                         <td width="5%">1</td>
