@@ -44,7 +44,19 @@ function navbar($flag){
 <?php
 }
 ?>
-
+<?php
+function user(){
+    if ($_SESSION['account'] != null) {
+        ?>
+        <a class="navbar-brand" href="#" style="background-color: #347aff; color: white;">莊政宏</a>
+        <?php
+    } else {
+        ?>
+        <a class="navbar-brand" href="#">莊政宏</a>
+        <?php
+    }
+}
+?>
 <?php
 function footer(){
     ?>

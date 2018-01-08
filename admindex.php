@@ -74,7 +74,7 @@ if ($_SESSION['account'] != null) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">莊政宏</a>
+                <?php user() ?>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <?php navbar(0) ?>
