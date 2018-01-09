@@ -1,6 +1,11 @@
 <?php
 include("fun.inc.php");
+include ("db_connect.php");
 session_start();
+$sql = "SELECT * from awards";
+$result = mysqli_query($link,$sql);
+//$row = @mysqli_fetch_row($result);
+$content=$row[1];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -157,56 +162,36 @@ session_start();
 
 <div class="container-fluid text-center">
     <div class="row content">
-        <div class="col-sm-6 text-left">
+        <div class="col-sm-12 text-left">
             <div class="entry">
                 <button type="submit"><a href="genpdf.php">下載pdf</a></button>
+                <button type="submit"><a href="awardsAdd.php">新增</a></button>
+                <button type="submit"><a href="awardsEdit.php">修改</a></button>
+                <button type="submit"><a href="awardsDelete.php">刪除</a></button>
                 <table width="95%" border="0" cellpadding="0" cellspacing="0" class="tb_main">
-                    <tbody><tr class="odd">
-                        <td width="5%">1</td>
-                        <td>102學年度績優職涯導師，本校，2014.10.1</td>
-                    </tr>
-                    <tr>
-                        <td width="5%">2</td>
-                        <td>103年度第1次學術研究獎勵，本校，2014.07.31</td>
-                    </tr>
-                    <tr class="odd">
-                        <td width="5%">3</td>
-                        <td>102年度第2次學術研究獎勵，本校，2014.03.15</td>
-                    </tr>
-                    <tr>
-                        <td width="5%">4</td>
-                        <td>產學合作績優獎，本校，2013.12.20</td>
-                    </tr>
-                    <tr class="odd">
-                        <td width="5%">5</td>
-                        <td>2013年第23次ITSA線上程式設計大賽，教育部，2013.06.26</td>
-                    </tr>
-                    <tr>
-                        <td width="5%">6</td>
-                        <td>學術研究表現卓越獎，本校，2013.03.13</td>
-                    </tr>
-                    <tr class="odd">
-                        <td width="5%">7</td>
-                        <td>學術研究於期刊論文類表現卓越獎，本校，2013.03.13</td>
-                    </tr>
-                    <tr>
-                        <td width="5%">8</td>
-                        <td>學術研究於期刊論文類表現卓越獎，本校，2012.03.17</td>
-                    </tr>
-                    <tr class="odd">
-                        <td width="5%">9</td>
-                        <td>傑出教學獎，本校，2010.03.21</td>
-                    </tr>
-                    <tr>
-                        <td width="5%">10</td>
-                        <td>學術研究表現卓越獎，本校，2009.03.21</td>
-                    </tr>
-                    <tr class="odd">
-                        <td width="5%">11</td>
-                        <td>研究專題競賽佳作獎，本校，2009.03.21</td>
-                    </tr>
+                    <tbody>
+                    <?php
+                    $count=1;
+                    while($row = @mysqli_fetch_row($result)) {
+                        if ($count % 2 == 1) {
+                            ?>
+                            <tr class="odd">
+                                <td width="8%"><?php echo "(編號:".$row[0].")<br>".$count; ?></td>
+                                <td><?php echo $row[1]; ?></td>
+                            </tr>
+                            <?php $count++;
+                        } else {
+                            ?>
+                            <tr>
+                                <td width="8%"><?php echo "(編號:".$row[0].")<br>".$count; ?></td>
+                                <td><?php echo $row[1]; ?></td>
+                            </tr>
+                            <?php $count++;
+                        }
+                    }
+                    ?>
                     </tbody></table>
-                <p>&nbsp;</p>
+
             </div>
         </div>
     </div>

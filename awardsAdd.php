@@ -8,9 +8,6 @@ if ($_SESSION['account'] != null) {
     <html lang="en">
     <head>
         <title>莊政宏</title>
-        <audio autoplay loop>
-            <source src="music/BokudakegaInaiMachiED.mp3" type="audio/mpeg">
-        </audio>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,45 +73,20 @@ if ($_SESSION['account'] != null) {
                 <?php user() ?>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-                <?php navbar(0) ?>
+                <?php navbar(6) ?>
             </div>
         </div>
     </nav>
 
     <div class="container-fluid text-center">
-        <div class="row content" style="background-image: url('images/BokudakegaInaiMachi.jpg'); background-size: 100% 100%">
+        <div class="row content">
             <div class="col-sm-12 text-left">
-<!--                <h2 class="w3-text-grey w3-padding-16"><i-->
-<!--                            class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>經歷</h2>-->
-<!--                <div class="w3-container">-->
-<!--                    <h4 class="w3-opacity"><b>副教授</b></h4>-->
-<!--                    <h5 class="w3-opacity"><a href="http://csie.asia.edu.tw/"><b>資訊工程學系</b></a></h5>-->
-<!--                    <h5 class="w3-opacity"><a href="http://www.asia.edu.tw/"><b>亞洲大學</b></a></h5>-->
-<!--                    <h5 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><span-->
-<!--                                style="color: #48af7c">2013年8月</span> - <span-->
-<!--                                style="background-color: #009688;border-radius: 4px; color: #ffffff;">當前</span></h5>-->
-<!--                    <hr>-->
-<!--                </div>-->
-                <span style="color: #ffffff; font-size: 1.5em; background-color: black">新增使用者</span>
-                <form id="form" method="post" action="register_finish.php">
+                <form id="form" method="post" action="awardsAdd_finish.php">
                     <b>
                         <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        帳號：</span>&nbsp;<input type="text" name="id"/> <br>
-                        <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        密碼：</span>&nbsp;<input type="password" name="pw"/> <br>
-                        <hr>
-                        <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        再一次輸入密碼：</span>&nbsp;<input type="password" name="pw2"/> <br>
-                        <hr>
-                        <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        E-mail：</span><input type="text" name="email"/> <br>
-                        <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        Phone：</span>&nbsp;<input type="text" name="phone"/> <br>
-                        <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        Type：</span> &nbsp;&nbsp;<input type="text" name="type"/> <br>
-                        <hr>
+                        獲獎內容：</span>&nbsp;<br><textarea name="content"></textarea> <br>
                     </b>
-                    <b style="color: #ffffff;font-size: 1.5em"><input type="submit" name="button" value="新增使用者" style="background-color: black"/></b>
+                    <b style="color: #ffffff;font-size: 1.5em"><input type="submit" name="button" value="新增內容" style="background-color: black"/></b>
                     <br>
                     <br>
                     <b style="color: #ffffff;font-size: 1.5em"><input type="button" onclick="reSet()" value="清空" style="background-color: black"/></b>
