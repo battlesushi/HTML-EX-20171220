@@ -83,11 +83,12 @@ if ($_SESSION['account'] != null) {
             <div class="col-sm-12 text-left">
                 <form id="form" method="post" action="awardsEdit_finish.php">
                     <b>
-                        <?php $id = $_POST['id'];?>
-                        <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        資料編號：<?php echo $id;?></span><br><?php echo "<input type=\"hidden\" name=\"id\" value=\"$id\" />";?>
+                        <?php $id = $_POST['id']; ?>
+                        <?php $content = $_POST['content']; ?>
+                        <?php echo "<input type=\"hidden\" name=\"id\" value=\"$id\" />";?>
                         <br><br>
-
+                        <span style="color: #ffffff; font-size: 1.5em; background-color: black">
+                        原始資料：</span>&nbsp;<br><p><?php echo $content;?></p><br>
                         <span style="color: #ffffff; font-size: 1.5em; background-color: black">
                         請輸入修改後的資料：</span>&nbsp;<br><textarea name="content"></textarea> <br>
                     </b>

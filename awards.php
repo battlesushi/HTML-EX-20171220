@@ -164,9 +164,12 @@ $result = mysqli_query($link,$sql);
         <div class="col-sm-12 text-left">
             <div class="entry">
                 <button type="submit"><a href="genpdf.php">下載pdf</a></button>
-                <button type="submit"><a href="awardsAdd.php">新增</a></button>
-                <button type="submit"><a href="awardsEdit.php">修改</a></button>
-                <button type="submit"><a href="awardsDelete.php">刪除</a></button>
+                <?php if ($_SESSION['account'] != null) {
+                    ?>
+                    <button type="submit"><a href="awardsAdd.php">新增</a></button>
+                <?php
+                }
+                ?>
                 <table width="95%" border="0" cellpadding="0" cellspacing="0" class="tb_main">
                     <tbody>
                     <?php
@@ -175,27 +178,44 @@ $result = mysqli_query($link,$sql);
                         if ($count % 2 == 1) {
                             ?>
                             <tr class="odd">
-                                <td width="8%"><?php echo "(編號:".$row[0].")<br>".$count; ?></td>
+                                <td width="5%"><?php echo $count; ?></td>
                                 <td><?php echo $row[1]; ?></td>
                                 <?php
+                            if ($_SESSION['account'] != null) {
                                 echo "<form name=\"form\" method=\"post\" action=\"awardsEdit.php\">";
                                 echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                echo "<input type=\"hidden\" name=\"content\" value=\"$row[1]\" />";
                                 echo "<td align=\"right\"><button type=\"submit\">修改</button></td>";
                                 echo "</form>";
-                                    ?>
-                                <td><button type="submit"><a href="awardsDelete.php">刪除</a></button></td>
+                                ?>
+                                <?php
+                                echo "<form name=\"form\" method=\"post\" action=\"awardsDelete_finish.php\">";
+                                echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                echo "<td align=\"right\"><button type=\"submit\" onclick=\"return confirm('第'+$count+'筆資料確定要刪除嗎? 刪除後無法復原!!')\">刪除</button></td>";
+                                echo "</form>";
+                            }
+                                ?>
                             </tr>
                             <?php $count++;
                         } else {
                             ?>
                             <tr>
-                                <td width="8%"><?php echo "(編號:".$row[0].")<br>".$count; ?></td>
+                                <td width="5%"><?php echo $count; ?></td>
                                 <td><?php echo $row[1]; ?></td>
                                 <?php
+                            if ($_SESSION['account'] != null) {
                                 echo "<form name=\"form\" method=\"post\" action=\"awardsEdit.php\">";
                                 echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                echo "<input type=\"hidden\" name=\"content\" value=\"$row[1]\" />";
                                 echo "<td align=\"right\"><button type=\"submit\">修改</button></td>";
                                 echo "</form>";
+                                ?>
+                                <?php
+                                echo "<form name=\"form\" method=\"post\" action=\"awardsDelete_finish.php\">";
+                                echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                echo "<td align=\"right\"><button type=\"submit\" onclick=\"return confirm('第'+$count+'筆資料確定要刪除嗎? 刪除後無法復原!!')\">刪除</button></td>";
+                                echo "</form>";
+                            }
                                 ?>
                             </tr>
                             <?php $count++;

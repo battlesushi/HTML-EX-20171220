@@ -3,7 +3,6 @@
 <?php
 include("db_connect.php");
 $id = $_POST['id'];
-
 if($_SESSION['account'] != null)
 {
     //新增資料進資料庫語法
@@ -19,9 +18,8 @@ if($_SESSION['account'] != null)
         echo '<meta http-equiv=REFRESH CONTENT=2;url=awardsDelete.php>';
     }
 }
-else
-{
-    echo '您無權限觀看此頁面!';
-    echo '<meta http-equiv=REFRESH CONTENT=2;url=awardsDelete.php>';
+else{
+        echo '您無權限觀看此頁面!(即將返回頁面)';
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=awards.php>';
 }
 ?>

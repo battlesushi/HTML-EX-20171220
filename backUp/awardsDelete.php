@@ -81,7 +81,7 @@ if ($_SESSION['account'] != null) {
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-12 text-left">
-                <form id="form" method="post" action="awardsDelete_finish.php">
+                <form id="form" method="post" action="../awardsDelete_finish.php">
                     <b>
                         <span style="color: #ffffff; font-size: 1.5em; background-color: black">
                         請輸入欲刪除的資料：</span>&nbsp;<br><input type="text" name="id" value="(請輸入編號)"><br><br>
