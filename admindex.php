@@ -95,7 +95,7 @@ if ($_SESSION['account'] != null) {
 
             </div>
             <div class="col-sm-10 text-left">
-                <div class="w3-container">
+                <div class="table-responsive">
                     <?php
                     //將資料庫裡的所有會員資料顯示在畫面上
                     $sql = "SELECT * FROM userList";

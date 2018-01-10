@@ -5,7 +5,6 @@ session_start();
 $sql = "SELECT * from awards";
 $result = mysqli_query($link,$sql);
 //$row = @mysqli_fetch_row($result);
-$content=$row[1];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -178,6 +177,13 @@ $content=$row[1];
                             <tr class="odd">
                                 <td width="8%"><?php echo "(編號:".$row[0].")<br>".$count; ?></td>
                                 <td><?php echo $row[1]; ?></td>
+                                <?php
+                                echo "<form name=\"form\" method=\"post\" action=\"awardsEdit.php\">";
+                                echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                echo "<td align=\"right\"><button type=\"submit\">修改</button></td>";
+                                echo "</form>";
+                                    ?>
+                                <td><button type="submit"><a href="awardsDelete.php">刪除</a></button></td>
                             </tr>
                             <?php $count++;
                         } else {
@@ -185,6 +191,12 @@ $content=$row[1];
                             <tr>
                                 <td width="8%"><?php echo "(編號:".$row[0].")<br>".$count; ?></td>
                                 <td><?php echo $row[1]; ?></td>
+                                <?php
+                                echo "<form name=\"form\" method=\"post\" action=\"awardsEdit.php\">";
+                                echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                echo "<td align=\"right\"><button type=\"submit\">修改</button></td>";
+                                echo "</form>";
+                                ?>
                             </tr>
                             <?php $count++;
                         }
