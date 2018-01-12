@@ -185,13 +185,13 @@ $result = mysqli_query($link,$sql);
                                 echo "<form name=\"form\" method=\"post\" action=\"awardsEdit.php\">";
                                 echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
                                 echo "<input type=\"hidden\" name=\"content\" value=\"$row[1]\" />";
-                                echo "<td align=\"right\"><button type=\"submit\">修改</button></td>";
+                                echo "<td align=\"right\"><button class='edit' type=\"submit\">修改</button></td>";
                                 echo "</form>";
                                 ?>
                                 <?php
                                 echo "<form name=\"form\" method=\"post\" action=\"awardsDelete_finish.php\">";
                                 echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
-                                echo "<td align=\"right\"><button type=\"submit\" onclick=\"return confirm('第'+$count+'筆資料確定要刪除嗎? 刪除後無法復原!!')\">刪除</button></td>";
+                                echo "<td align=\"right\"><button class='delete' type=\"submit\" onclick=\"return confirm('第'+$count+'筆資料確定要刪除嗎? 刪除後無法復原!!')\">刪除</button></td>";
                                 echo "</form>";
                             }
                                 ?>
@@ -207,13 +207,13 @@ $result = mysqli_query($link,$sql);
                                 echo "<form name=\"form\" method=\"post\" action=\"awardsEdit.php\">";
                                 echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
                                 echo "<input type=\"hidden\" name=\"content\" value=\"$row[1]\" />";
-                                echo "<td align=\"right\"><button type=\"submit\">修改</button></td>";
+                                echo "<td align=\"right\"><button class='edit' type=\"submit\">修改</button></td>";
                                 echo "</form>";
                                 ?>
                                 <?php
                                 echo "<form name=\"form\" method=\"post\" action=\"awardsDelete_finish.php\">";
                                 echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
-                                echo "<td align=\"right\"><button type=\"submit\" onclick=\"return confirm('第'+$count+'筆資料確定要刪除嗎? 刪除後無法復原!!')\">刪除</button></td>";
+                                echo "<td align=\"right\"><button class='delete' type=\"submit\" onclick=\"return confirm('第'+$count+'筆資料確定要刪除嗎? 刪除後無法復原!!')\">刪除</button></td>";
                                 echo "</form>";
                             }
                                 ?>

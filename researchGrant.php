@@ -1,6 +1,10 @@
 <?php
 include("fun.inc.php");
+include ("db_connect.php");
 session_start();
+$sql = "SELECT * from researchGrant";
+$result = mysqli_query($link,$sql);
+//$row = @mysqli_fetch_row($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -157,42 +161,69 @@ session_start();
 
 <div class="container-fluid text-center">
     <div class="row content">
-        <div class="col-sm-6 text-left">
+        <div class="col-sm-12 text-left">
             <div class="entry">
+                <button type="submit"><a href="genpdf.php">下載pdf</a></button>
+                <?php if ($_SESSION['account'] != null) {
+                    ?>
+                    <button type="submit"><a href="researchGrantAdd.php">新增</a></button>
+                    <?php
+                }
+                ?>
                 <table width="95%" border="0" cellpadding="0" cellspacing="0" class="tb_main">
-                    <tbody><tr class="odd">
-                        <td width="5%">1</td>
-                        <td>整合型(召集人、總主持人)，MOST103-2221-E-468-008-MY2，莊政宏(Cheng-Hung Chuang),陳彥霖、周永振(YUNG-CHEN CHOU)，國科會，利用電腦視覺技術於精神病患者輔助醫療照護－子計畫四：多場景下患者的活動路徑分析(2/2)，2015.8.1 ~ 2016.7.31</td>
-                    </tr>
-                    <tr>
-                        <td width="5%">2</td>
-                        <td>整合型(召集人、總主持人)，MOST103-2221-E-468-008-MY2，莊政宏(Cheng-Hung Chuang),陳彥霖、周永振(YUNG-CHEN CHOU)，國科會，利用電腦視覺技術於精神病患者輔助醫療照護－子計畫四：多場景下患者的活動路徑分析(1/2)，2014.8.1 ~ 2015.7.31</td>
-                    </tr>
-                    <tr class="odd">
-                        <td width="5%">3</td>
-                        <td>整合型(召集人、總主持人)，NSC102-2221-E-468-015，莊政宏(Cheng-Hung Chuang),陳彥霖(Yen-Lin Chen)，國科會，「第一人稱視覺」應用於智慧型居家照護環境的建構-子計畫三：具有資訊隱藏及視訊加密功能之人本視訊分析技術，2013.8.1 ~ 2014.10.31</td>
-                    </tr>
-                    <tr>
-                        <td width="5%">4</td>
-                        <td>個別型，NSC101-2221-E-468-015，莊政宏(Cheng-Hung Chuang),陳彥霖(Yen-Lin Chen)、洪振偉(Zeng-Wei Hong)，國科會，基於人本視訊監控及分析之智慧家庭系統之研究，2012.8.1 ~ 2013.10.31</td>
-                    </tr>
-                    <tr class="odd">
-                        <td width="5%">5</td>
-                        <td>個別型，NSC100-2221-E-468-024，莊政宏(Cheng-Hung Chuang),陳彥霖(Yen-Lin Chen)、洪振偉(Zeng-Wei Hong)，國科會，智慧型內容感知視訊調整系統之研究，2011.8.1 ~ 2012.10.31</td>
-                    </tr>
-                    <tr>
-                        <td width="5%">6</td>
-                        <td>個別型，NSC99-2221-E-468-022，莊政宏(Cheng-Hung Chuang)，國科會，具內容保護之可調式多層次視訊編輯技術與應用之研究－具多層次內容感知視訊調整技術之研究，2010.8.1 ~ 2011.10.31</td>
-                    </tr>
-                    <tr class="odd">
-                        <td width="5%">7</td>
-                        <td>個別型，NSC97-2221-E-468-006，莊政宏(Cheng-Hung Chuang)，國科會，植基於適應性資訊隱藏技術之光學彩色影像及視訊加解密系統之研究，2008.8.1 ~ 2009.10.31</td>
-                    </tr>
-                    <tr>
-                        <td width="5%">8</td>
-                        <td>個別型，NSC96-2218-E-468-003，莊政宏(Cheng-Hung Chuang),林國祥(Guo-Shiang Lin)，國科會，以適應性資訊隱藏技術為基礎的光學影像加解密系統之研究，2007.8.1 ~ 2008.7.31</td>
-                    </tr>
+                    <tbody>
+                    <?php
+                    $count=1;
+                    while($row = @mysqli_fetch_row($result)) {
+                        if ($count % 2 == 1) {
+                            ?>
+                            <tr class="odd">
+                                <td width="5%"><?php echo $count; ?></td>
+                                <td><?php echo $row[1]; ?></td>
+                                <?php
+                                if ($_SESSION['account'] != null) {
+                                    echo "<form name=\"form\" method=\"post\" action=\"researchGrantEdit.php\">";
+                                    echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                    echo "<input type=\"hidden\" name=\"content\" value=\"$row[1]\" />";
+                                    echo "<td align=\"right\"><button class='edit' type=\"submit\">修改</button></td>";
+                                    echo "</form>";
+                                    ?>
+                                    <?php
+                                    echo "<form name=\"form\" method=\"post\" action=\"researchGrantDelete_finish.php\">";
+                                    echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                    echo "<td align=\"right\"><button class='delete' type=\"submit\" onclick=\"return confirm('第'+$count+'筆資料確定要刪除嗎? 刪除後無法復原!!')\">刪除</button></td>";
+                                    echo "</form>";
+                                }
+                                ?>
+                            </tr>
+                            <?php $count++;
+                        } else {
+                            ?>
+                            <tr>
+                                <td width="5%"><?php echo $count; ?></td>
+                                <td><?php echo $row[1]; ?></td>
+                                <?php
+                                if ($_SESSION['account'] != null) {
+                                    echo "<form name=\"form\" method=\"post\" action=\"researchGrantEdit.php\">";
+                                    echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                    echo "<input type=\"hidden\" name=\"content\" value=\"$row[1]\" />";
+                                    echo "<td align=\"right\"><button class='edit' type=\"submit\">修改</button></td>";
+                                    echo "</form>";
+                                    ?>
+                                    <?php
+                                    echo "<form name=\"form\" method=\"post\" action=\"researchGrantDelete_finish.php\">";
+                                    echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                    echo "<td align=\"right\"><button class='delete' type=\"submit\" onclick=\"return confirm('第'+$count+'筆資料確定要刪除嗎? 刪除後無法復原!!')\">刪除</button></td>";
+                                    echo "</form>";
+                                }
+                                ?>
+                            </tr>
+                            <?php $count++;
+                        }
+                    }
+                    ?>
                     </tbody></table>
+
             </div>
         </div>
     </div>
