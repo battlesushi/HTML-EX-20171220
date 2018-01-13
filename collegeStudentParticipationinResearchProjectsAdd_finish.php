@@ -9,21 +9,21 @@ $content = $_POST['content'];
 if($_SESSION['account'] != null)
 {
     //新增資料進資料庫語法
-    $sql = "insert into researchGrant (content) values ('$content')";
+    $sql = "insert into collegeStudentParticipationinResearchProjects (content) values ('$content')";
     if(mysqli_query($link,$sql))
     {
         echo '新增成功!';
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=researchGrant.php>';
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=collegeStudentParticipationinResearchProjects.php>';
     }
     else
     {
         echo '新增失敗!!請注意是否正確!!';
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=researchGrantAdd.php>';
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=collegeStudentParticipationinResearchProjectsAdd.php>';
     }
 }
 else
 {
     echo '您無權限觀看此頁面!';
-    echo '<meta http-equiv=REFRESH CONTENT=2;url=researchGrant.php>';
+    echo '<meta http-equiv=REFRESH CONTENT=2;url=collegeStudentParticipationinResearchProjects.php>';
 }
 ?>

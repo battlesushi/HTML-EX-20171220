@@ -14,7 +14,7 @@ if($_SESSION['account'] != null)
     }
     else
     {
-        echo '刪除失敗!!請注意輸入(編號:xx)是否正確!!';
+        echo '刪除失敗!!';
         echo '<meta http-equiv=REFRESH CONTENT=2;url=conferencePapers.php>';
     }
 }

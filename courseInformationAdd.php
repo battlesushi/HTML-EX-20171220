@@ -73,7 +73,7 @@ if ($_SESSION['account'] != null) {
                 <?php user() ?>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-                <?php navbar(6) ?>
+                <?php navbar(7) ?>
             </div>
         </div>
     </nav>
@@ -81,18 +81,12 @@ if ($_SESSION['account'] != null) {
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-12 text-left">
-                <form id="form" method="post" action="awardsEdit_finish.php">
+                <form id="form" method="post" action="courseInformationAdd_finish.php">
                     <b>
-                        <?php $id = $_POST['id']; ?>
-                        <?php $content = $_POST['content']; ?>
-                        <?php echo "<input type=\"hidden\" name=\"id\" value=\"$id\" />";?>
-                        <br><br>
                         <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        原始資料：</span>&nbsp;<br><p><?php echo $content;?></p><br>
-                        <span style="color: #ffffff; font-size: 1.5em; background-color: black">
-                        請輸入修改後的資料：</span>&nbsp;<br><textarea name="content"></textarea> <br>
+                        授課課程內容：</span>&nbsp;<br><textarea name="content"></textarea> <br>
                     </b>
-                    <b style="color: #ffffff;font-size: 1.5em"><input type="submit" name="button" value="修改" onclick="return confirm('確定修改?')" style="background-color: black"/></b>
+                    <b style="color: #ffffff;font-size: 1.5em"><input type="submit" name="button" value="新增內容" style="background-color: black"/></b>
                     <br>
                     <br>
                     <b style="color: #ffffff;font-size: 1.5em"><input type="button" onclick="reSet()" value="清空" style="background-color: black"/></b>

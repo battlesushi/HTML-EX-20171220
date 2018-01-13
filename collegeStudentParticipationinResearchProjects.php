@@ -1,6 +1,10 @@
 <?php
 include("fun.inc.php");
+include ("db_connect.php");
 session_start();
+$sql = "SELECT * from collegeStudentParticipationinResearchProjects";
+$result = mysqli_query($link,$sql);
+//$row = @mysqli_fetch_row($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -157,26 +161,69 @@ session_start();
 
 <div class="container-fluid text-center">
     <div class="row content">
-        <div class="col-sm-6 text-left">
+        <div class="col-sm-12 text-left">
             <div class="entry">
+                <button type="submit"><a href="genpdf.php">下載pdf</a></button>
+                <?php if ($_SESSION['account'] != null) {
+                    ?>
+                    <button type="submit"><a href="collegeStudentParticipationinResearchProjectsAdd.php">新增</a></button>
+                    <?php
+                }
+                ?>
                 <table width="95%" border="0" cellpadding="0" cellspacing="0" class="tb_main">
-
-                    <tbody><tr class="odd">
-                        <td width="5%">1</td>
-                        <td>學年度:104<br>計畫名稱:影像視訊之時空縮放技術及軟體實作<br>指導教授:                                                                &nbsp;莊政宏                             <br>學生姓名:<br></td>
-                    </tr>
-
-                    <tr>
-                        <td width="5%">2</td>
-                        <td>學年度:103<br>計畫名稱:基於色彩特徵比對之中藥枸杞辨識系統<br>指導教授:                                                                &nbsp;莊政宏                             <br>學生姓名:陳立民<br></td>
-                    </tr>
-
-                    <tr class="odd">
-                        <td width="5%">3</td>
-                        <td>學年度:099<br>計畫名稱:基於JBIG2壓縮之高藏量影像加解密系統之研發及軟體實作<br>指導教授:                                                                &nbsp;莊政宏                             <br>學生姓名:顏志燁<br></td>
-                    </tr>
-
+                    <tbody>
+                    <?php
+                    $count=1;
+                    while($row = @mysqli_fetch_row($result)) {
+                        if ($count % 2 == 1) {
+                            ?>
+                            <tr class="odd">
+                                <td width="5%"><?php echo $count; ?></td>
+                                <td><?php echo $row[1]; ?></td>
+                                <?php
+                                if ($_SESSION['account'] != null) {
+                                    echo "<form name=\"form\" method=\"post\" action=\"collegeStudentParticipationinResearchProjectsEdit.php\">";
+                                    echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                    echo "<input type=\"hidden\" name=\"content\" value=\"$row[1]\" />";
+                                    echo "<td align=\"right\"><button class='edit' type=\"submit\">修改</button></td>";
+                                    echo "</form>";
+                                    ?>
+                                    <?php
+                                    echo "<form name=\"form\" method=\"post\" action=\"collegeStudentParticipationinResearchProjectsDelete_finish.php\">";
+                                    echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                    echo "<td align=\"right\"><button class='delete' type=\"submit\" onclick=\"return confirm('第'+$count+'筆資料確定要刪除嗎? 刪除後無法復原!!')\">刪除</button></td>";
+                                    echo "</form>";
+                                }
+                                ?>
+                            </tr>
+                            <?php $count++;
+                        } else {
+                            ?>
+                            <tr>
+                                <td width="5%"><?php echo $count; ?></td>
+                                <td><?php echo $row[1]; ?></td>
+                                <?php
+                                if ($_SESSION['account'] != null) {
+                                    echo "<form name=\"form\" method=\"post\" action=\"collegeStudentParticipationinResearchProjectsEdit.php\">";
+                                    echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                    echo "<input type=\"hidden\" name=\"content\" value=\"$row[1]\" />";
+                                    echo "<td align=\"right\"><button class='edit' type=\"submit\">修改</button></td>";
+                                    echo "</form>";
+                                    ?>
+                                    <?php
+                                    echo "<form name=\"form\" method=\"post\" action=\"collegeStudentParticipationinResearchProjectsDelete_finish.php\">";
+                                    echo "<input type=\"hidden\" name=\"id\" value=\"$row[0]\" />";
+                                    echo "<td align=\"right\"><button class='delete' type=\"submit\" onclick=\"return confirm('第'+$count+'筆資料確定要刪除嗎? 刪除後無法復原!!')\">刪除</button></td>";
+                                    echo "</form>";
+                                }
+                                ?>
+                            </tr>
+                            <?php $count++;
+                        }
+                    }
+                    ?>
                     </tbody></table>
+
             </div>
         </div>
     </div>

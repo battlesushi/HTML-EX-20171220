@@ -73,7 +73,7 @@ if ($_SESSION['account'] != null) {
                 <?php user() ?>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-                <?php navbar(6) ?>
+                <?php navbar(8) ?>
             </div>
         </div>
     </nav>
@@ -81,7 +81,7 @@ if ($_SESSION['account'] != null) {
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-12 text-left">
-                <form id="form" method="post" action="awardsEdit_finish.php">
+                <form id="form" method="post" action="thesisAdvisorEdit_finish.php">
                     <b>
                         <?php $id = $_POST['id']; ?>
                         <?php $content = $_POST['content']; ?>

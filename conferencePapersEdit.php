@@ -92,7 +92,7 @@ if ($_SESSION['account'] != null) {
                         <span style="color: #ffffff; font-size: 1.5em; background-color: black">
                         請輸入修改後的資料：</span>&nbsp;<br><textarea name="content"></textarea> <br>
                     </b>
-                    <b style="color: #ffffff;font-size: 1.5em"><input type="submit" name="button" value="修改" style="background-color: black"/></b>
+                    <b style="color: #ffffff;font-size: 1.5em"><input type="submit" name="button" value="修改" onclick="return confirm('確定修改?')" style="background-color: black"/></b>
                     <br>
                     <br>
                     <b style="color: #ffffff;font-size: 1.5em"><input type="button" onclick="reSet()" value="清空" style="background-color: black"/></b>

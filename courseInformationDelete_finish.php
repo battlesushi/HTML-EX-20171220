@@ -6,20 +6,20 @@ $id = $_POST['id'];
 if($_SESSION['account'] != null)
 {
     //新增資料進資料庫語法
-    $sql = "delete from awards where id='$id'";
+    $sql = "delete from courseInformation where id='$id'";
     if(mysqli_query($link,$sql))
     {
         echo '刪除成功!';
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=awards.php>';
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=courseInformation.php>';
     }
     else
     {
         echo '刪除失敗!!';
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=awardsDelete.php>';
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=courseInformation.php>';
     }
 }
 else{
-        echo '您無權限觀看此頁面!(即將返回頁面)';
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=awards.php>';
+    echo '您無權限觀看此頁面!(即將返回頁面)';
+    echo '<meta http-equiv=REFRESH CONTENT=2;url=courseInformation.php>';
 }
 ?>

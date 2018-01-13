@@ -107,7 +107,7 @@ if ($_SESSION['account'] != null) {
                         Phone：</span>&nbsp;<input type="text" name="phone" value="<?php echo $phone ?>"/> <br>
                     <hr>
                 </b>
-                <b style="color: #ffffff;font-size: 1.5em"><input type="submit" name="button" value="更新/Update"style="background-color: black"/></b>
+                <b style="color: #ffffff;font-size: 1.5em"><input type="submit" name="button" value="更新/Update" onclick="return confirm('確定修改?')" style="background-color: black"/></b>
                 <br>
                 <br>
                 <b style="color: #ffffff;font-size: 1.5em"><input type="button" onclick="reSet()" value="全部重置"style="background-color: black"/></b>
