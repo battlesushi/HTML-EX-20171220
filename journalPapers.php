@@ -2,7 +2,7 @@
 include("fun.inc.php");
 include ("db_connect.php");
 session_start();
-$sql = "SELECT * from journalPapers";
+$sql = "SELECT * from awards";
 $result = mysqli_query($link,$sql);
 //$row = @mysqli_fetch_row($result);
 ?>
